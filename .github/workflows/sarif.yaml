@@ -1,0 +1,42 @@
+# DISCLAIMER: This workflow file has been auto-generated and committed to the repo by the GitHub App from Contrast Security.
+# Manual edits to this file could cause the integration to produce unexpected behavior or break.
+# Version: 1.0.0
+# Last updated: 2023-07-26T17:26:01.288081451Z
+name: Sarif
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - develop
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - develop
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+  checks: write
+  id-token: write
+  security-events: write
+  actions: read
+
+jobs:
+  sarif_repo:
+    if: ${{ github.actor != 'dependabot[bot]' }}
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v3
+      - name: Run Contrast Sarif
+        id: sarif
+        uses: 'Contrast-Security-OSS/contrast-sca-action@SCA-1685'
+        with:
+          apiKey: ${{ secrets.CONTRAST_GITHUB_APP_API_KEY }}
+          authHeader: ${{ secrets.CONTRAST_GITHUB_APP_AUTH_HEADER }}
+          orgId: ${{ vars.CONTRAST_GITHUB_APP_ORG_ID }}
+          apiUrl: ${{ vars.CONTRAST_GITHUB_APP_TS_URL }}
+          command: sarif
+          applicationId: 'c30293b9-8025-4991-916b-dbf480b78d15'
+          ghasEnabled: false
