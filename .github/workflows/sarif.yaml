@@ -40,3 +40,4 @@ jobs:
           command: sarif
           applicationId: 'c30293b9-8025-4991-916b-dbf480b78d15'
           ghasEnabled: true
+          severity: high
