@@ -31,13 +31,12 @@ jobs:
         uses: actions/checkout@v3
       - name: Run Contrast Sarif
         id: sarif
-        uses: 'Contrast-Security-OSS/contrast-sca-action@SCA-1757-GHES-support'
+        uses: 'Contrast-Security-OSS/contrast-sarif-action@SCA-1762'
         with:
           apiKey: ${{ secrets.CONTRAST_GITHUB_APP_API_KEY }}
           authHeader: ${{ secrets.CONTRAST_GITHUB_APP_AUTH_HEADER }}
           orgId: ${{ vars.CONTRAST_GITHUB_APP_ORG_ID }}
           apiUrl: ${{ vars.CONTRAST_GITHUB_APP_TS_URL }}
-          command: sarif
           applicationId: 'c30293b9-8025-4991-916b-dbf480b78d15'
           ghasEnabled: true
           severity: high
