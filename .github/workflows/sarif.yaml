@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - develop
+      - main
   pull_request:
     types: [opened, synchronize, reopened]
     branches:
@@ -37,7 +37,7 @@ jobs:
           authHeader: ${{ secrets.CONTRAST_GITHUB_APP_AUTH_HEADER }}
           orgId: ${{ vars.CONTRAST_GITHUB_APP_ORG_ID }}
           apiUrl: ${{ vars.CONTRAST_GITHUB_APP_TS_URL }}
-          applicationId: 'c30293b9-8025-4991-916b-dbf480b78d15'
+          applicationId: '67c28e5e-c5ac-4491-8bc9-946f50292b71'
           ghasEnabled: true
           command: 'sarif'
           severity: high
