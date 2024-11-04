@@ -31,13 +31,11 @@ jobs:
         uses: actions/checkout@v3
       - name: Run Contrast Sarif
         id: sarif
-        uses: 'Contrast-Security-OSS/contrast-sarif-action@SCA-1762'
+        uses: 'Contrast-Security-OSS/contrast-sarif-action@V1'
         with:
           apiKey: ${{ secrets.CONTRAST_GITHUB_APP_API_KEY }}
           authHeader: ${{ secrets.CONTRAST_GITHUB_APP_AUTH_HEADER }}
           orgId: ${{ vars.CONTRAST_GITHUB_APP_ORG_ID }}
           apiUrl: ${{ vars.CONTRAST_GITHUB_APP_TS_URL }}
           applicationId: '67c28e5e-c5ac-4491-8bc9-946f50292b71'
-          ghasEnabled: true
-          command: 'sarif'
-          severity: high
+          ghasEnabled: true #whether or not to upload the sarif file to GHAS
