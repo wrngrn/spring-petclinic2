@@ -37,5 +37,5 @@ jobs:
           authHeader: ${{ secrets.CONTRAST_GITHUB_APP_AUTH_HEADER }}
           orgId: ${{ vars.CONTRAST_GITHUB_APP_ORG_ID }}
           apiUrl: ${{ vars.CONTRAST_GITHUB_APP_TS_URL }}
-          applicationId: 'dffc0e4d-5795-42eb-a044-ab49ed48dc8b'
+          applicationId: '39833fd9-d773-4c93-8301-b8d5e55aa3d4'
           ghasEnabled: true #whether or not to upload the sarif file to GHAS
